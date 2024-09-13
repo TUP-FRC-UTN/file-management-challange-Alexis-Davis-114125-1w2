@@ -1,1 +1,10 @@
-add code here!!
+<div class="container mt-4" style="border: 1px solid green; background-color: lightgray;">
+    <h1>Gestión de Archivos</h1>
+    <button class="btn btn-primary mb-3" (click)="toggleFormVisibility()">
+      {{ showForm ? 'Cancelar' : 'Nuevo Archivo' }}
+    </button>
+    <app-file-form *ngIf="showForm"></app-file-form>
+    <app-file-list *ngIf="!showForm"></app-file-list>
+    <p style="color: red;">PRUEBA</p>
+  </div>
+  <p style="color: blue;">PRUEBA 2</p>

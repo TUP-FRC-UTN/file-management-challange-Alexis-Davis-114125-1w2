@@ -1,0 +1,20 @@
+<div class="file-list">
+    <button class="btn btn-danger mb-3" (click)="deleteSelectedFiles()" [disabled]="selectedFiles.size === 0">
+      Eliminar Seleccionados
+    </button>
+    
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let file of files">
+        <div class="d-flex align-items-center">
+          <input type="checkbox" (change)="toggleSelection(file.id)" class="mr-2"/>
+          <span [title]="file.name.length > 10 ? file.name : ''">{{ file.name.length > 10 ? file.name.slice(0, 10) + '...' : file.name }}</span>
+        </div>
+        <div>
+          <span *ngIf="file.owners.length > 3">+{{ file.owners.length - 3 }}</span>
+          <span *ngFor="let owner of file.owners.slice(0, 3)">
+            <img [src]="owner.avatarUrl" alt="{{ owner.name }}" class="rounded-circle" width="30" height="30" />
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
